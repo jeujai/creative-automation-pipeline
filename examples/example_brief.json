@@ -1,38 +1,38 @@
 {
   "_comment": "Example campaign brief in JSON format",
-  "_description": "This brief defines a summer sale campaign for two beverage products targeting health-conscious millennials in the US market",
+  "_description": "This brief defines a superhero-themed campaign for Japan market showcasing Superman experiencing Japanese culture",
   
-  "campaign_id": "summer_sale_2024",
+  "campaign_id": "superman_japan_2024",
   "_campaign_id_comment": "Unique identifier for this campaign - used to organize output files",
   
   "products": [
     {
-      "product_id": "coffee_premium",
-      "_product_id_comment": "Must match the filename in input_assets/ (e.g., coffee_premium.png)",
-      "name": "Premium Arabica Coffee",
+      "product_id": "superman_tokyo_tower",
+      "_product_id_comment": "Must match the filename in input_assets/ (e.g., superman_tokyo_tower.png)",
+      "name": "Superman at Tokyo Tower",
       "_name_comment": "Product name used in GenAI prompts if image generation is needed",
-      "description": "Single-origin premium coffee beans"
+      "description": "Superman flying majestically past Tokyo Tower at sunset, with Mount Fuji visible in the background, vibrant city lights beginning to glow, cinematic superhero style"
     },
     {
-      "product_id": "tea_organic",
-      "name": "Organic Green Tea",
-      "description": "Certified organic loose leaf green tea"
+      "product_id": "superman_shibuya",
+      "name": "Superman in Shibuya Crossing",
+      "description": "Superman hovering above the famous Shibuya Crossing in Tokyo, neon signs and crowds below, dynamic urban superhero scene, evening atmosphere with colorful lights"
     }
   ],
   "_products_comment": "List of products to process - each will get 3 aspect ratio variants (1:1, 9:16, 16:9)",
   
-  "target_region": "US",
+  "target_region": "Japan",
   "_target_region_comment": "Geographic market - influences GenAI image generation style and context",
   
-  "target_audience": "health-conscious millennials aged 25-40",
+  "target_audience": "anime and superhero fans aged 18-35 in Japan",
   "_target_audience_comment": "Audience description - used to inform GenAI image generation prompts",
   
-  "campaign_message": "Start Your Day Right",
-  "_campaign_message_comment": "Text that will be overlaid on all generated creative assets",
+  "campaign_message": "ヒーローが日本に来る！",
+  "_campaign_message_comment": "Text that will be overlaid on all generated creative assets. Japanese text means 'The Hero Comes to Japan!'",
   
   "localization": {
     "_localization_comment": "Optional: Specify language and region-specific messaging",
-    "language": "en",
-    "region_specific_message": "Available at your local store"
+    "language": "ja",
+    "region_specific_message": "Coming to theaters nationwide"
   }
 }

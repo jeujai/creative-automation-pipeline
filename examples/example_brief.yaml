@@ -1,42 +1,43 @@
 # Example campaign brief in YAML format
-# This brief defines a summer sale campaign for two beverage products
-# targeting health-conscious millennials in the US market
+# This brief defines a superhero-themed campaign for Japan market
+# Showcasing Superman experiencing Japanese culture
 
 # Unique identifier for this campaign - used to organize output files
-campaign_id: "summer_sale_2024"
+campaign_id: "superman_japan_2024"
 
 # List of products to process - each will get 3 aspect ratio variants (1:1, 9:16, 16:9)
 products:
-  # Product 1: Premium Coffee
-  - product_id: "coffee_premium"
-    # product_id must match the filename in input_assets/ (e.g., coffee_premium.png)
-    # If no input asset exists, GenAI will generate one using the product name
-    name: "Premium Arabica Coffee"
-    description: "Single-origin premium coffee beans"
+  # Product 1: Superman at Tokyo Tower
+  - product_id: "superman_tokyo_tower"
+    # product_id must match the filename in input_assets/ (e.g., superman_tokyo_tower.png)
+    # If no input asset exists, GenAI will generate one using the product name and description
+    name: "Superman at Tokyo Tower"
+    description: "Superman flying majestically past Tokyo Tower at sunset, with Mount Fuji visible in the background, vibrant city lights beginning to glow, cinematic superhero style"
   
-  # Product 2: Organic Tea
-  - product_id: "tea_organic"
-    name: "Organic Green Tea"
-    description: "Certified organic loose leaf green tea"
+  # Product 2: Superman in Shibuya
+  - product_id: "superman_shibuya"
+    name: "Superman in Shibuya Crossing"
+    description: "Superman hovering above the famous Shibuya Crossing in Tokyo, neon signs and crowds below, dynamic urban superhero scene, evening atmosphere with colorful lights"
 
 # Geographic market - influences GenAI image generation style and context
-target_region: "US"
+target_region: "Japan"
 
 # Audience description - used to inform GenAI image generation prompts
 # Be specific to get better results from the GenAI model
-target_audience: "health-conscious millennials aged 25-40"
+target_audience: "anime and superhero fans aged 18-35 in Japan"
 
 # Text that will be overlaid on all generated creative assets
 # Keep it concise for better readability across different aspect ratios
-campaign_message: "Start Your Day Right"
+campaign_message: "ヒーローが日本に来る！"
 
 # Optional: Specify language and region-specific messaging
 localization:
-  language: "en"
-  region_specific_message: "Available at your local store"
+  language: "ja"
+  region_specific_message: "Coming to theaters nationwide"
 
 # Notes:
-# - If input_assets/coffee_premium.png exists, it will be reused (no GenAI generation)
-# - If input_assets/tea_organic.png is missing, GenAI will generate it
-# - Output will be saved to: output/summer_sale_2024/{product_id}/{aspect_ratio}_{product_id}.png
+# - If input_assets/superman_tokyo_tower.png exists, it will be reused (no GenAI generation)
+# - If input_assets/superman_shibuya.png is missing, GenAI will generate it
+# - Output will be saved to: output/superman_japan_2024/{product_id}/{aspect_ratio}_{product_id}.png
 # - Supported image formats: PNG, JPG, JPEG
+# - The Japanese text "ヒーローが日本に来る！" means "The Hero Comes to Japan!"

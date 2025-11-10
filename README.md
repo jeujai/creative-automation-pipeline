@@ -71,7 +71,7 @@ Optional:
 ### Examples
 
 ```bash
-# Basic execution with YAML brief
+# Basic execution with YAML brief (Superman in Japan campaign)
 python pipeline.py --brief examples/example_brief.yaml
 
 # Use JSON brief format
@@ -86,6 +86,17 @@ python pipeline.py --brief examples/example_brief.yaml --config custom_config.ya
 # Verbose logging for debugging
 python pipeline.py --brief examples/example_brief.yaml --verbose
 ```
+
+**Example Output:**
+The Superman in Japan campaign will generate 6 creative assets:
+- `output/superman_japan_2024/superman_tokyo_tower/1x1_superman_tokyo_tower.png` (Instagram feed)
+- `output/superman_japan_2024/superman_tokyo_tower/9x16_superman_tokyo_tower.png` (Stories/TikTok)
+- `output/superman_japan_2024/superman_tokyo_tower/16x9_superman_tokyo_tower.png` (YouTube)
+- `output/superman_japan_2024/superman_shibuya/1x1_superman_shibuya.png`
+- `output/superman_japan_2024/superman_shibuya/9x16_superman_shibuya.png`
+- `output/superman_japan_2024/superman_shibuya/16x9_superman_shibuya.png`
+
+Each image will have the Japanese text "ヒーローが日本に来る！" (The Hero Comes to Japan!) overlaid at the bottom.
 
 ## Campaign Brief Format
 
