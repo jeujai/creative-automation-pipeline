@@ -1,17 +1,17 @@
-# Creative Automation Pipeline Configuration
+# Creative Automation Pipeline Configuration - Google Imagen
 
-# GenAI Image Generation Settings
+# GenAI Image Generation Settings - Google Imagen 3
 genai:
-  provider: "openai"  # Options: "openai", "imagen" (Google), "google"
-  api_key: "${OPENAI_API_KEY}"  # Load from environment variable
-  model: "dall-e-3"  # For OpenAI: "dall-e-3", For Imagen: "imagen-3.0-generate-001"
+  provider: "imagen"  # Use Google Imagen 3
+  api_key: "${GOOGLE_API_KEY}"  # Load from environment variable (or use Application Default Credentials)
+  model: "imagen-3.0-generate-001"  # Imagen 3 model
   default_size: [1024, 1024]  # Default generation size [width, height]
   max_retries: 3  # Maximum retry attempts for API failures
   retry_delay: 2  # Initial retry delay in seconds (exponential backoff)
   
-  # Google Imagen specific settings (only needed if provider is "imagen" or "google")
-  # project_id: "your-gcp-project-id"  # Google Cloud project ID
-  # location: "us-central1"  # Google Cloud region
+  # Google Cloud settings
+  project_id: "${GCP_PROJECT_ID}"  # Your Google Cloud project ID
+  location: "us-central1"  # Google Cloud region (us-central1, europe-west4, asia-southeast1)
 
 # Storage Configuration
 storage:

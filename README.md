@@ -6,19 +6,22 @@ A command-line tool that automates the generation of social media advertising cr
 
 - **Campaign Brief Processing**: Parse JSON/YAML campaign briefs with multiple products
 - **Smart Asset Management**: Reuse existing product assets to minimize generation costs
-- **GenAI Image Generation**: Generate new hero images via OpenAI DALL-E 3 when assets are missing
+- **GenAI Image Generation**: Generate new hero images via OpenAI DALL-E 3 or Google Imagen 3
 - **Multi-Format Output**: Create variants in 1:1, 9:16, and 16:9 aspect ratios for different social platforms
 - **Text Overlay**: Apply campaign messages with proper contrast and readability
 - **Organized Output**: Systematic organization by campaign, product, and aspect ratio
 - **Optional Compliance**: Brand compliance and legal content checking
 - **Comprehensive Logging**: Detailed execution reporting and logging
+- **Multiple GenAI Providers**: Support for OpenAI DALL-E 3 and Google Imagen 3
 
 ## Installation
 
 ### Prerequisites
 
 - Python 3.9 or higher
-- OpenAI API key (for DALL-E 3 image generation)
+- **One of the following:**
+  - OpenAI API key (for DALL-E 3 image generation)
+  - Google Cloud account with Vertex AI enabled (for Imagen 3 image generation) - **Recommended: 50% cheaper!**
 
 ### Setup
 
@@ -41,6 +44,23 @@ cp .env.example .env
 Alternatively, export the API key directly:
 ```bash
 export OPENAI_API_KEY=your_api_key_here
+```
+
+**Alternative: Use Google Imagen 3 (Recommended - 50% cheaper!)**
+
+See [IMAGEN_SETUP.md](IMAGEN_SETUP.md) for detailed setup instructions.
+
+Quick start:
+```bash
+# Install Google Cloud dependencies
+pip install google-cloud-aiplatform vertexai
+
+# Set up authentication
+gcloud auth application-default login
+export GCP_PROJECT_ID=your-project-id
+
+# Run with Imagen
+python pipeline.py --brief examples/example_brief.yaml --config config_imagen.yaml
 ```
 
 ## Usage

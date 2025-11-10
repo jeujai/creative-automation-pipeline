@@ -1,0 +1,14 @@
+# Minimal test brief with just one product
+campaign_id: "test_single_generation"
+
+products:
+  - product_id: "superman_test"
+    name: "Superman Flying"
+    description: "Superman flying through clouds at sunset, heroic pose, cinematic style"
+
+target_region: "US"
+target_audience: "superhero fans"
+campaign_message: "Hero Arrives"
+
+localization:
+  language: "en"

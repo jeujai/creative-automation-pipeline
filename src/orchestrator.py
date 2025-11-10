@@ -114,6 +114,17 @@ class PipelineOrchestrator:
             from src.clients.openai_client import OpenAIClient
             model = genai_config.get('model', 'dall-e-3')
             return OpenAIClient(api_key=api_key, model=model)
+        elif provider == 'imagen' or provider == 'google':
+            from src.clients.gemini_client import ImagenClient
+            model = genai_config.get('model', 'imagen-3.0-generate-001')
+            project_id = genai_config.get('project_id')
+            location = genai_config.get('location', 'us-central1')
+            return ImagenClient(
+                api_key=api_key, 
+                model=model,
+                project_id=project_id,
+                location=location
+            )
         else:
             raise ValueError(f"Unsupported GenAI provider: {provider}")
     
