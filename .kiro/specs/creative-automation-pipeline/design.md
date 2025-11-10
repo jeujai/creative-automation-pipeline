@@ -7,7 +7,10 @@ The Creative Automation Pipeline is a command-line application that automates th
 ### Technology Stack
 
 - **Language**: Python 3.9+
-- **GenAI Image Generation**: OpenAI DALL-E 3 API (primary) with fallback to Stability AI
+- **GenAI Image Generation**: Multiple providers supported
+  - OpenAI DALL-E 3 API
+  - Google Imagen 3 via Vertex AI (recommended - 50% cost savings)
+  - Stability AI (optional fallback)
 - **Image Processing**: Pillow (PIL) for resizing, cropping, and text overlay
 - **Configuration**: YAML and JSON parsing via PyYAML and built-in json modules
 - **Storage**: Local filesystem with optional cloud storage abstraction layer
@@ -176,8 +179,9 @@ class GenAIClient:
 ```
 
 **Supported Providers**:
-- OpenAI DALL-E 3 (primary)
-- Stability AI (fallback)
+- OpenAI DALL-E 3
+- Google Imagen 3 via Vertex AI (recommended - 50% cheaper than DALL-E 3)
+- Stability AI (optional)
 
 **Prompt Engineering Strategy**:
 - Include product name, target audience, and regional context
@@ -408,10 +412,14 @@ class GeneratedAsset:
 ```yaml
 # config.yaml
 genai:
-  provider: "openai"  # or "stability"
-  api_key: "${OPENAI_API_KEY}"  # from environment
-  model: "dall-e-3"
+  provider: "openai"  # Options: "openai", "imagen", "google", "stability"
+  api_key: "${OPENAI_API_KEY}"  # from environment (or GOOGLE_API_KEY for Imagen)
+  model: "dall-e-3"  # or "imagen-3.0-generate-001" for Google Imagen
   default_size: [1024, 1024]
+  
+  # Google Imagen specific (only needed if provider is "imagen" or "google")
+  # project_id: "${GCP_PROJECT_ID}"
+  # location: "us-central1"
   
 storage:
   input_dir: "./input_assets"
@@ -445,7 +453,9 @@ logging:
 
 ### Environment Variables
 
-- `OPENAI_API_KEY`: OpenAI API key
+- `OPENAI_API_KEY`: OpenAI API key (for DALL-E 3)
+- `GOOGLE_API_KEY`: Google API key (for Imagen 3, optional if using ADC)
+- `GCP_PROJECT_ID`: Google Cloud project ID (for Imagen 3)
 - `STABILITY_API_KEY`: Stability AI API key (optional)
 - `PIPELINE_CONFIG`: Path to config file (default: ./config.yaml)
 
@@ -478,7 +488,14 @@ logging:
 ### Installation Requirements
 
 ```bash
-pip install pillow pyyaml openai stability-sdk requests
+# Core dependencies
+pip install pillow pyyaml openai requests
+
+# Optional: Google Imagen support (recommended)
+pip install google-cloud-aiplatform vertexai
+
+# Optional: Stability AI support
+pip install stability-sdk
 ```
 
 ### Running the Pipeline
