@@ -1,0 +1,17 @@
+# Core dependencies
+pillow>=10.0.0
+pyyaml>=6.0
+openai>=1.0.0
+requests>=2.31.0
+
+# Compliance checker dependencies
+opencv-python>=4.8.0
+scikit-learn>=1.3.0
+numpy>=1.24.0
+
+# Optional dependencies
+# stability-sdk>=0.8.0  # Uncomment for Stability AI fallback
+
+# Development dependencies
+pytest>=7.4.0
+pytest-cov>=4.1.0

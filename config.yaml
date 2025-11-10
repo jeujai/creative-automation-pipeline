@@ -1,0 +1,68 @@
+# Creative Automation Pipeline Configuration
+
+# GenAI Image Generation Settings
+genai:
+  provider: "openai"  # Options: "openai", "stability"
+  api_key: "${OPENAI_API_KEY}"  # Load from environment variable
+  model: "dall-e-3"
+  default_size: [1024, 1024]  # Default generation size [width, height]
+  max_retries: 3  # Maximum retry attempts for API failures
+  retry_delay: 2  # Initial retry delay in seconds (exponential backoff)
+
+# Storage Configuration
+storage:
+  input_dir: "./input_assets"  # Directory for existing product images
+  output_dir: "./output"  # Directory for generated outputs
+  supported_formats: ["png", "jpg", "jpeg"]  # Supported image formats
+
+# Aspect Ratio Configuration
+aspect_ratios:
+  - "1:1"    # Square (Instagram feed, Facebook)
+  - "9:16"   # Vertical (Instagram Stories, TikTok)
+  - "16:9"   # Horizontal (YouTube, Facebook video)
+
+# Text Overlay Configuration
+text_overlay:
+  font_family: "Arial"  # Font to use for text overlay
+  font_size: 48  # Base font size (scaled based on image dimensions)
+  color: "#FFFFFF"  # Text color (hex format)
+  position: "bottom"  # Text position: "top", "center", "bottom"
+  padding: 20  # Padding around text in pixels
+  background_opacity: 0.6  # Semi-transparent background opacity (0.0-1.0)
+  max_width_ratio: 0.9  # Maximum text width as ratio of image width
+  line_spacing: 1.2  # Line spacing multiplier for multi-line text
+
+# Compliance Checking (Optional)
+compliance:
+  enabled: false  # Set to true to enable compliance checks
+  
+  # Brand Compliance
+  brand:
+    logo_template: "./brand/logo.png"  # Path to brand logo template
+    brand_colors:  # List of brand colors (hex format)
+      - "#FF0000"
+      - "#0000FF"
+    min_logo_size: [50, 50]  # Minimum logo dimensions [width, height]
+    color_tolerance: 30  # Color matching tolerance (0-255)
+  
+  # Legal Compliance
+  legal:
+    prohibited_words:  # List of prohibited terms
+      - "guarantee"
+      - "free"
+      - "winner"
+      - "risk-free"
+    case_sensitive: false  # Whether word matching is case-sensitive
+
+# Logging Configuration
+logging:
+  level: "INFO"  # Options: "DEBUG", "INFO", "WARNING", "ERROR"
+  file: "./pipeline.log"  # Log file path
+  console_output: true  # Whether to output logs to console
+  include_timestamp: true  # Include timestamps in log messages
+
+# Performance Configuration
+performance:
+  parallel_processing: false  # Enable parallel product processing (future)
+  max_workers: 4  # Maximum concurrent workers for parallel processing
+  cache_enabled: false  # Enable caching of GenAI responses (future)

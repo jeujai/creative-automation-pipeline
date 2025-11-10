@@ -1,0 +1,38 @@
+{
+  "_comment": "Example campaign brief in JSON format",
+  "_description": "This brief defines a summer sale campaign for two beverage products targeting health-conscious millennials in the US market",
+  
+  "campaign_id": "summer_sale_2024",
+  "_campaign_id_comment": "Unique identifier for this campaign - used to organize output files",
+  
+  "products": [
+    {
+      "product_id": "coffee_premium",
+      "_product_id_comment": "Must match the filename in input_assets/ (e.g., coffee_premium.png)",
+      "name": "Premium Arabica Coffee",
+      "_name_comment": "Product name used in GenAI prompts if image generation is needed",
+      "description": "Single-origin premium coffee beans"
+    },
+    {
+      "product_id": "tea_organic",
+      "name": "Organic Green Tea",
+      "description": "Certified organic loose leaf green tea"
+    }
+  ],
+  "_products_comment": "List of products to process - each will get 3 aspect ratio variants (1:1, 9:16, 16:9)",
+  
+  "target_region": "US",
+  "_target_region_comment": "Geographic market - influences GenAI image generation style and context",
+  
+  "target_audience": "health-conscious millennials aged 25-40",
+  "_target_audience_comment": "Audience description - used to inform GenAI image generation prompts",
+  
+  "campaign_message": "Start Your Day Right",
+  "_campaign_message_comment": "Text that will be overlaid on all generated creative assets",
+  
+  "localization": {
+    "_localization_comment": "Optional: Specify language and region-specific messaging",
+    "language": "en",
+    "region_specific_message": "Available at your local store"
+  }
+}

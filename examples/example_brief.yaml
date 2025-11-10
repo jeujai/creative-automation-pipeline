@@ -1,0 +1,42 @@
+# Example campaign brief in YAML format
+# This brief defines a summer sale campaign for two beverage products
+# targeting health-conscious millennials in the US market
+
+# Unique identifier for this campaign - used to organize output files
+campaign_id: "summer_sale_2024"
+
+# List of products to process - each will get 3 aspect ratio variants (1:1, 9:16, 16:9)
+products:
+  # Product 1: Premium Coffee
+  - product_id: "coffee_premium"
+    # product_id must match the filename in input_assets/ (e.g., coffee_premium.png)
+    # If no input asset exists, GenAI will generate one using the product name
+    name: "Premium Arabica Coffee"
+    description: "Single-origin premium coffee beans"
+  
+  # Product 2: Organic Tea
+  - product_id: "tea_organic"
+    name: "Organic Green Tea"
+    description: "Certified organic loose leaf green tea"
+
+# Geographic market - influences GenAI image generation style and context
+target_region: "US"
+
+# Audience description - used to inform GenAI image generation prompts
+# Be specific to get better results from the GenAI model
+target_audience: "health-conscious millennials aged 25-40"
+
+# Text that will be overlaid on all generated creative assets
+# Keep it concise for better readability across different aspect ratios
+campaign_message: "Start Your Day Right"
+
+# Optional: Specify language and region-specific messaging
+localization:
+  language: "en"
+  region_specific_message: "Available at your local store"
+
+# Notes:
+# - If input_assets/coffee_premium.png exists, it will be reused (no GenAI generation)
+# - If input_assets/tea_organic.png is missing, GenAI will generate it
+# - Output will be saved to: output/summer_sale_2024/{product_id}/{aspect_ratio}_{product_id}.png
+# - Supported image formats: PNG, JPG, JPEG
